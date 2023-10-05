@@ -1,0 +1,34 @@
+<div class="container-fluid pt-3 w-50">
+    <form [formGroup]="loginForm">
+        <div class="card">
+            <h5 class="card-header">Login</h5>
+            <div class="card-body">
+               <div class="form-group">
+                <div class="alert alert-danger" *ngIf="isAuthenticationFail">
+                    Invalid User Name or Password</div>
+                <label for="">UserName</label>
+                    <input type="text" formControlName="UserName" id="" class="form-control"
+                    [ngClass]="{'is-valid':loginForm.controls.UserName.valid,'is-invalid':loginForm.controls.UserName.invalid}">
+                <div class="alert alert-danger" 
+                [hidden]="!(loginForm.controls.UserName.dirty && loginForm.controls.UserName.errors)">
+                Enter User Name</div>            
+                <br>   
+                
+            </div>
+               <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" formControlName="Password" id="" class="form-control"
+                [ngClass]="{'is-valid':loginForm.controls.Password.valid,'is-invalid':loginForm.controls.Password.invalid}">
+                <div class="alert alert-danger" 
+                [hidden]="!(loginForm.controls.Password.dirty && loginForm.controls.Password.errors)">
+                Enter Password</div>            
+                
+               </div>
+
+               <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <input type="button" value="Login" class="btn btn-success" routerLink="/question" (click)="CheckUser()" [disabled]="loginForm.invalid">
+               
+            </div>
+           </div>
+    </form>
+</div>
